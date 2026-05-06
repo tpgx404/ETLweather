@@ -1,0 +1,44 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres_db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  airflow-webserver:
+    image: apache/airflow:2.7.1
+    container_name: airflow_webserver
+    command: webserver
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://postgres:postgres@postgres:5432/postgres
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__WEBSERVER__BASE_URL=https://curly-tribble-97jppw77xwvvcx6gq-8080.app.github.dev
+    volumes:
+      - ./dags:/opt/airflow/dags
+
+  airflow-scheduler:
+    image: apache/airflow:2.7.1
+    container_name: airflow_scheduler
+    command: scheduler
+    depends_on:
+      - postgres
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://postgres:postgres@postgres:5432/postgres
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__WEBSERVER__BASE_URL=https://curly-tribble-97jppw77xwvvcx6gq-8080.app.github.dev
+    volumes:
+      - ./dags:/opt/airflow/dags
+
+volumes:
+  postgres_data:
