@@ -56,17 +56,17 @@ etl_weather/
 ```
 ## ⚙️ DAG Workflow
 The Airflow DAG consists of three primary tasks:
-* **1. Extract Task**
+* ** Extract Task**
 Fetches live weather data from the Open-Meteo API using the Airflow HttpHook.
 Example API Endpoint: https://api.open-meteo.com/v1/forecast?latitude=51.5074&longitude=-0.1278&current_weather=true
-* **2. Transform Task**
+* ** Transform Task**
 Parses the raw JSON response to extract specific weather metrics:
 Temperature
 Wind Speed
 Wind Direction
 Weather Code
 Latitude & Longitude
-* **3. Load Task**
+* ** Load Task**
 Using the PostgresHook, this task interacts with the database to:
 Create Table: Ensures the weather_data table exists.
 Insert Data: Appends the transformed records into the database.
