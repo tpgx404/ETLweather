@@ -32,7 +32,7 @@ graph TD
     end
     E --> F[(PostgreSQL Database)]
 
-##✨𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬
+## ✨ Features
 Automated ETL pipeline: Fully hands-off data processing.
 Real-time Integration: Fetches up-to-date weather metrics.
 Relational Storage: Structured data storage in PostgreSQL.
