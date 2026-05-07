@@ -31,3 +31,12 @@ graph TD
     D --> E[Load]
     end
     E --> F[(PostgreSQL Database)]
+
+##✨𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬
+Automated ETL pipeline: Fully hands-off data processing.
+Real-time Integration: Fetches up-to-date weather metrics.
+Relational Storage: Structured data storage in PostgreSQL.
+Task Orchestration: Efficient monitoring and scheduling via Airflow.
+Dockerized: Consistent environment across different machines.
+Modular DAG: Clean, maintainable Python code structure.
+Beginner-friendly: Easy to understand and extend for learning purposes.
