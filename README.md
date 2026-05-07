@@ -30,7 +30,7 @@ graph TD
     C --> D[Transform]
     D --> E[Load]
     end
-    E --> F[(PostgreSQL Database)]
+    E --> F[(PostgreSQL Database)]```
 
 ## ✨ Features
 Automated ETL pipeline: Fully hands-off data processing.
