@@ -1,1 +1,33 @@
-ETL weather pipeline
+# Weather ETL Pipeline using Apache Airflow, PostgreSQL & Docker
+
+A beginner-friendly ETL (Extract, Transform, Load) data engineering project built using **Apache Airflow**, **PostgreSQL**, **Docker**, and the **Open-Meteo API**.
+
+This pipeline automatically fetches live weather data, transforms it, and stores it inside a PostgreSQL database using Airflow DAG orchestration.
+
+## 🚀 Project Overview
+This project demonstrates a complete ETL workflow:
+* **Extract:** Live weather data from the Open-Meteo API.
+* **Transform:** Raw JSON responses converted into structured data.
+* **Load:** Processed weather data stored into PostgreSQL.
+* **Orchestrate:** Entire workflow managed using Apache Airflow DAGs.
+* **Containerize:** All services run via Docker and Docker Compose.
+* **Environment:** Optimized for running locally or inside GitHub Codespaces.
+
+## 🛠 Tech Stack
+* **Language:** Python
+* **Orchestration:** Apache Airflow
+* **Database:** PostgreSQL
+* **Containerization:** Docker & Docker Compose
+* **Environment:** GitHub Codespaces
+* **Data Source:** Open-Meteo Weather API
+
+## 🏗 Architecture
+```mermaid
+graph TD
+    A[Open-Meteo API] -->|JSON Data| B[Apache Airflow DAG]
+    subgraph ETL Process
+    B --> C[Extract]
+    C --> D[Transform]
+    D --> E[Load]
+    end
+    E --> F[(PostgreSQL Database)]
