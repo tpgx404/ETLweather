@@ -41,3 +41,16 @@ Task Orchestration: Efficient monitoring and scheduling via Airflow.
 Dockerized: Consistent environment across different machines.
 Modular DAG: Clean, maintainable Python code structure.
 Beginner-friendly: Easy to understand and extend for learning purposes.
+
+## 📁 Project Structure
+
+```text
+etl_weather/
+│
+├── dags/
+│   └── etlweather.py         # Main Airflow DAG logic
+│
+├── docker-compose.yml       # Docker configuration for Airflow & Postgres
+│
+└── README.md                # Project documentation
+```
